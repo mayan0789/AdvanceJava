@@ -9,9 +9,11 @@ public class Connec {
 
 	public static void main(String[] args) throws Exception {
 
-		Class.forName("com.mysql.jdbc.Driver");
+		ResourceBundle rsb = ResourceBundle.getBundle("advncJava.app");
+		
+		Class.forName(rsb.getString("driver"));
 
-		Connection conc = DriverManager.getConnection("jdbc:mysql://localhost/random", "root", "root");
+		Connection conc = DriverManager.getConnection(rsb.getString("url"), rsb.getString("user"),rsb.getString("pass"));
 	 
 		Statement smt = conc.createStatement();
 		
